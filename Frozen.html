@@ -32,6 +32,11 @@
       animation: elsa-animation 2s infinite;
     }
 
+    .title button {
+      background-color: rgb(192, 255, 192);
+      color: black;
+    }
+
     @keyframes elsa-animation {
       0% { transform: rotate(0deg); }
       50% { transform: rotate(5deg); }
@@ -40,7 +45,10 @@
   </style>
 </head>
 <body>
-  <h1>Juego de Frozen</h1>
+  <div class="title">
+    <h1>Juego de Frozen</h1>
+    <button onclick="redirigir('OSTWALD', 'Juegos', 0)">Página Anterior</button>
+  </div>
 
   <div id="area-respuestas"></div>
 
@@ -102,6 +110,14 @@
       color: "Mis colores favoritos son el azul y el blanco, ¿y los tuyos?",
       // Agrega más respuestas personalizadas aquí según las preguntas o comandos que esperes
     };
+
+    function redirigir(pageId, peliculaId, error) {
+      if (error === 0) {
+        window.location.href = "https://ostwald-ro.github.io/" + pageId + "/" + peliculaId;
+      } else {
+        window.location.href = "https://ostwald-ro.github.io/Error/" + error;
+      }
+    }
 
     // Función para obtener la respuesta de Elsa
     function obtenerRespuesta(input) {
